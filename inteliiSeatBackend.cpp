@@ -7,7 +7,7 @@
 using namespace std;
 
 // ----------------- Student Structure -----------------
-// Stores student details
+// Stores student details    KRITIKA DHIMAN 
 struct Student {
     string rollNumber;
     string firstName;
@@ -24,7 +24,7 @@ struct Exam {
 };
 
 // ----------------- Hall Class -----------------
-// Stores hall details and manages seating
+// Stores hall details and manages seating GARVIT AND ABHINAV 
 class Hall {
 public:
     string name;
@@ -64,7 +64,7 @@ public:
     int getCapacity() const { return rows * cols; }
 };
 
-// ----------------- Seating Management -----------------
+// ----------------- Seating Management ----------------- KHUSBHU 
 class SeatingArrangement {
 public:
     vector<Hall> halls; // List of all halls
