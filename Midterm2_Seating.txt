@@ -1,0 +1,7 @@
+Hall: A101
+     EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY 
+Hall: B202
+     EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY 

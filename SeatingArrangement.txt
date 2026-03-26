@@ -1,0 +1,33 @@
+Hall: LT-1
+CSE2024001      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+Hall: LT-2
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+Hall: CR-1
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
+     EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY      EMPTY 
