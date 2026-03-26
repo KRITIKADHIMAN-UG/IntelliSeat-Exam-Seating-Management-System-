@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliSeat - Exam Seating Management System</title>
+    <link rel="stylesheet" href="inteliiSeatStyles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-page">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="college-logo">
+                    <img src="college-logo.png" alt="College Logo" onerror="this.style.display='none'">
+                    <h1>IntelliSeat</h1>
+                    <p>Exam Seating Management System</p>
+                </div>
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <div class="login-footer">
+                        <p>System Administrator Access</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboardPage" class="dashboard-page" style="display: none;">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="user-profile">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="profile-info">
+                    <h3 id="adminName">System Administrator</h3>
+                    <p>admin@intelliSeat.edu</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-module="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-module="students">
+                        <i class="fas fa-graduation-cap"></i> Student Management
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-module="exams">
+                        <i class="fas fa-clipboard-list"></i> Exam Management
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-module="seating">
+                        <i class="fas fa-chair"></i> Seating Arrangement
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-module="shifts">
+                        <i class="fas fa-clock"></i> Shift/Timing Management
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div class="logout-section">
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Dashboard Module -->
+            <div id="dashboardModule" class="module-content active">
+                <div class="module-header">
+                    <h2>Dashboard Overview</h2>
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3 id="totalStudents">0</h3>
+                            <p>Total Students</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-file-alt"></i>
+                            <h3 id="totalExams">0</h3>
+                            <p>Total Exams</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-door-open"></i>
+                            <h3 id="totalHalls">0</h3>
+                            <p>Exam Halls</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3 id="upcomingExams">0</h3>
+                            <p>Upcoming Exams</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Management Module -->
+            <div id="studentsModule" class="module-content">
+                <div class="module-header">
+                    <h2>Student Management</h2>
+                    <div class="module-actions">
+                        <button id="addStudentBtn" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Student
+                        </button>
+                        <button id="bulkImportBtn" class="btn-secondary">
+                            <i class="fas fa-upload"></i> Bulk Import
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <label for="attendanceFilter">Minimum Attendance (%):</label>
+                        <input type="number" id="attendanceFilter" min="0" max="100" placeholder="75">
+                    </div>
+                    <div class="filter-group">
+                        <label for="statusFilter">Status:</label>
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="suspended">Suspended</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <button id="filterStudentsBtn" class="btn-primary">Filter Students</button>
+                </div>
+
+                <div class="student-form" id="studentForm" style="display: none;">
+                    <h3>Add/Edit Student</h3>
+                    <form id="addStudentForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentRoll">Roll Number:</label>
+                                <input type="text" id="studentRoll" pattern="[A-Z]{2}[0-9]{4}[0-9]{3}" title="Format: DEPTYYYYNNN (e.g., CS2024001)" required>
+                                <small>Format: DEPTYYYYNNN (e.g., CS2024001)</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentFirstName">First Name:</label>
+                                <input type="text" id="studentFirstName" pattern="[A-Za-z\s]{2,50}" title="Only alphabetic characters allowed" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentLastName">Last Name:</label>
+                                <input type="text" id="studentLastName" pattern="[A-Za-z\s]{2,50}" title="Only alphabetic characters allowed" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentDept">Department:</label>
+                                <select id="studentDept" required>
+                                    <option value="">Select Department</option>
+                                    <option value="CS">Computer Science</option>
+                                    <option value="EC">Electronics & Communication</option>
+                                    <option value="ME">Mechanical Engineering</option>
+                                    <option value="CE">Civil Engineering</option>
+                                    <option value="EE">Electrical Engineering</option>
+                                    <option value="IT">Information Technology</option>
+                                    <option value="AE">Aerospace Engineering</option>
+                                    <option value="CH">Chemical Engineering</option>
+                                    <option value="BT">Biotechnology</option>
+                                    <option value="PH">Physics</option>
+                                    <option value="MA">Mathematics</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentYear">Year:</label>
+                                <select id="studentYear" required>
+                                    <option value="">Select Year</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentSemester">Semester:</label>
+                                <select id="studentSemester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                    <option value="3">Semester 3</option>
+                                    <option value="4">Semester 4</option>
+                                    <option value="5">Semester 5</option>
+                                    <option value="6">Semester 6</option>
+                                    <option value="7">Semester 7</option>
+                                    <option value="8">Semester 8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentAttendance">Attendance (%):</label>
+                                <input type="number" id="studentAttendance" min="0" max="100" step="0.1" pattern="^(100|[1-9]?[0-9](\.\d)?)$" title="Must be between 0 and 100" required>
+                                <small>Enter attendance percentage (0-100)</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentStatus">Status:</label>
+                                <select id="studentStatus" required>
+                                    <option value="">Select Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="suspended">Suspended</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentEmail">Email:</label>
+                                <input type="email" id="studentEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentPhone">Phone Number:</label>
+                                <input type="tel" id="studentPhone" pattern="[6-9][0-9]{9}" title="10-digit mobile number starting with 6,7,8, or 9">
+                                <small>10-digit mobile number</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentSubjects">Subjects:</label>
+                                <select id="studentSubjects" multiple style="height: 80px;">
+                                    <option value="Data Structures">Data Structures</option>
+                                    <option value="Algorithms">Algorithms</option>
+                                    <option value="Database Systems">Database Systems</option>
+                                    <option value="Operating Systems">Operating Systems</option>
+                                    <option value="Computer Networks">Computer Networks</option>
+                                    <option value="Software Engineering">Software Engineering</option>
+                                    <option value="Web Technologies">Web Technologies</option>
+                                    <option value="Machine Learning">Machine Learning</option>
+                                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                    <option value="Cloud Computing">Cloud Computing</option>
+                                    <option value="Cyber Security">Cyber Security</option>
+                                    <option value="Digital Electronics">Digital Electronics</option>
+                                    <option value="Circuits">Circuits</option>
+                                    <option value="Signals">Signals</option>
+                                    <option value="Thermodynamics">Thermodynamics</option>
+                                    <option value="Mechanics">Mechanics</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Structures">Structures</option>
+                                    <option value="Materials">Materials</option>
+                                    <option value="Surveying">Surveying</option>
+                                    <option value="Power Systems">Power Systems</option>
+                                    <option value="Machines">Machines</option>
+                                    <option value="Control Systems">Control Systems</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                </select>
+                                <small>Hold Ctrl/Cmd to select multiple subjects</small>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Student</button>
+                            <button type="button" id="cancelStudentBtn" class="btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bulk-import" id="bulkImport" style="display: none;">
+                    <h3>Bulk Import Students</h3>
+                    <textarea id="bulkStudentData" placeholder="Paste student data here (Format: Roll Number, First Name, Last Name, Department, Year, Semester, Status, Attendance, Email, Phone, Subjects separated by semicolons)&#10;Example:&#10;CS2024001,Rahul,Sharma,CS,3,5,active,85.5,rahul.sharma@college.edu,9876543210,Data Structures;Algorithms;Database&#10;EC2024002,Priya,Patel,EC,2,3,active,78.0,priya.patel@college.edu,9876543211,Digital Electronics;Circuits"></textarea>
+                    <div class="form-actions">
+                        <button id="processBulkBtn" class="btn-primary">Process Data</button>
+                        <button id="cancelBulkBtn" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="students-table">
+                    <table id="studentsTable">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Department</th>
+                                <th>Year</th>
+                                <th>Semester</th>
+                                <th>Status</th>
+                                <th>Attendance</th>
+                                <th>Subjects</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Eligible</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exam Management Module -->
+            <div id="examsModule" class="module-content">
+                <div class="module-header">
+                    <h2>Exam Management</h2>
+                    <div class="module-actions">
+                        <button id="addExamBtn" class="btn-primary">
+                            <i class="fas fa-plus"></i> Create Exam
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exam-form" id="examForm" style="display: none;">
+                    <h3>Create New Exam</h3>
+                    <form id="addExamForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="examName">Exam Name:</label>
+                                <input type="text" id="examName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="examType">Exam Type:</label>
+                                <select id="examType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="midterm">Midterm Exam (1.5 hours)</option>
+                                    <option value="interim">Interim Exam (3 hours)</option>
+                                    <option value="term">Term Exam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="examSubject">Subject:</label>
+                                <input type="text" id="examSubject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="examDate">Date:</label>
+                                <input type="date" id="examDate" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="examTime">Time:</label>
+                                <input type="time" id="examTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="examHallType">Hall Type:</label>
+                                <select id="examHallType" required>
+                                    <option value="">Select Hall Type</option>
+                                    <option value="LT">Lecture Theatre (LT)</option>
+                                    <option value="CR">Classroom (CR)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Create Exam</button>
+                            <button type="button" id="cancelExamBtn" class="btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="exams-table">
+                    <table id="examsTable">
+                        <thead>
+                            <tr>
+                                <th>Exam Name</th>
+                                <th>Type</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Duration</th>
+                                <th>Hall Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="examsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seating Arrangement Module -->
+            <div id="seatingModule" class="module-content">
+                <div class="module-header">
+                    <h2>Seating Arrangement</h2>
+                    <div class="module-actions">
+                        <button id="generateSeatingBtn" class="btn-primary">
+                            <i class="fas fa-magic"></i> Generate Seating
+                        </button>
+                        <button id="printSeatingBtn" class="btn-secondary">
+                            <i class="fas fa-print"></i> Print Arrangement
+                        </button>
+                    </div>
+                </div>
+
+                <div class="seating-options">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="seatingExam">Select Exam:</label>
+                            <select id="seatingExam">
+                                <option value="">Select Exam</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="seatingAlgorithm">Algorithm:</label>
+                            <select id="seatingAlgorithm">
+                                <option value="sequential">Sequential</option>
+                                <option value="alternate">Alternate</option>
+                                <option value="random">Random</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bulk-student-data">
+                    <h3>Bulk Student Data</h3>
+                    <textarea id="bulkSeatingData" placeholder="Paste student details for seating arrangement (Roll Number, Name, Subject)"></textarea>
+                    <button id="processSeatingDataBtn" class="btn-primary">Process Data</button>
+                </div>
+
+                <div class="seating-display" id="seatingDisplay">
+                    <h3>Seating Arrangement</h3>
+                    <div id="seatingGrid" class="seating-grid">
+                        <!-- Seating arrangement will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shift/Timing Management Module -->
+            <div id="shiftsModule" class="module-content">
+                <div class="module-header">
+                    <h2>Shift & Timing Management</h2>
+                    <div class="module-actions">
+                        <button id="checkConflictsBtn" class="btn-primary">
+                            <i class="fas fa-exclamation-triangle"></i> Check Conflicts
+                        </button>
+                    </div>
+                </div>
+
+                <div class="shifts-timeline">
+                    <h3>Exam Schedule Timeline</h3>
+                    <div id="timelineContainer" class="timeline-container">
+                        <!-- Timeline will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="conflicts-section">
+                    <h3>Scheduling Conflicts</h3>
+                    <div id="conflictsList" class="conflicts-list">
+                        <!-- Conflicts will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="shifts-table">
+                    <table id="shiftsTable">
+                        <thead>
+                            <tr>
+                                <th>Exam Name</th>
+                                <th>Date</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Hall</th>
+                                <th>Hall Type</th>
+                                <th>Status</th>
+                                <th>Conflicts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shiftsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="inteliiSeatScript.js"></script>
+</body>
+</html>
