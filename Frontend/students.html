@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students - Exam Seating System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Exam Seating Management</h1>
+    <p>Students</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="students.html" class="active">Students</a>
+    <a href="exams.html">Exams</a>
+    <a href="seating.html">Seating</a>
+    <a href="shifts.html">Shifts</a>
+  </nav>
+
+  <main class="container">
+    <section class="card">
+      <h2>Add Student</h2>
+      <form id="studentForm" class="form-grid">
+        <input type="text" id="studentName" placeholder="Student Name" required>
+        <input type="text" id="studentRoll" placeholder="Roll Number" required>
+        <input type="text" id="studentBranch" placeholder="Branch" required>
+        <button type="submit" class="btn">Add Student</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Student List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Branch</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

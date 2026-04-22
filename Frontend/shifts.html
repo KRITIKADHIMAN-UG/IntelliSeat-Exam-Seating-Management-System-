@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shifts - Exam Seating System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Exam Seating Management</h1>
+    <p>Shifts</p>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="exams.html">Exams</a>
+    <a href="seating.html">Seating</a>
+    <a href="shifts.html" class="active">Shifts</a>
+  </nav>
+
+  <main class="container">
+    <section class="card">
+      <h2>Add Shift</h2>
+      <form id="shiftForm" class="form-grid">
+        <input type="text" id="shiftName" placeholder="Shift Name (Morning/Evening)" required>
+        <input type="time" id="shiftStartTime" required>
+        <input type="time" id="shiftEndTime" required>
+        <button type="submit" class="btn">Add Shift</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Shift List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Shift</th>
+            <th>Start</th>
+            <th>End</th>
+          </tr>
+        </thead>
+        <tbody id="shiftTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
