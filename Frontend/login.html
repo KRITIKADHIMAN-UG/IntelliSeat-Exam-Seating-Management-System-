@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Exam Seating System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+  <div class="login-card">
+    <h1>IntelliSeat</h1>
+    <p class="sub">Exam Seating Management</p>
+    <div id="loginError" class="status-msg error" style="display:none;"></div>
+    <form id="loginForm">
+      <label>Username
+        <input type="text" id="username" placeholder="Enter username" autocomplete="username" required>
+      </label>
+      <label>Password
+        <input type="password" id="password" placeholder="Enter password" autocomplete="current-password" required>
+      </label>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+  <script>window.IS_LOGIN_PAGE = true;</script>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const errBox = document.getElementById("loginError");
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      errBox.style.display = "none";
+
+      if (!username || !password) {
+        errBox.textContent = "Username and password are required.";
+        errBox.style.display = "block";
+        return;
+      }
+
+      const result = DataStore.login(username, password);
+      if (!result.ok) {
+        errBox.textContent = result.error;
+        errBox.style.display = "block";
+        return;
+      }
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

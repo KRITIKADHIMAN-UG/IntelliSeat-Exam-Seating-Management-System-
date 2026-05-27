@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shifts - Exam Seating System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="shifts">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">IntelliSeat</div>
+      <div class="sidebar-sub" id="sidebarUser">Exam Seating System</div>
+      <nav>
+        <a href="index.html" data-page="dashboard">Dashboard / Home</a>
+        <a href="students.html" data-page="students">Student Module</a>
+        <a href="exams.html" data-page="exams">Exam Module</a>
+        <a href="shifts.html" data-page="shifts">Shift Module</a>
+        <a href="seating.html" data-page="seating">Seating Module</a>
+        <a href="reports.html" data-page="reports">Reports / Downloads</a>
+      </nav>
+      <button type="button" class="logout-btn" id="logoutBtn">Logout</button>
+    </aside>
+    <main class="main-content">
+      <header class="page-header">
+        <h1>Shift Module</h1>
+        <p>Configure exam shifts before seating allocation</p>
+      </header>
+      <section class="card">
+        <h2>Add Shift</h2>
+        <form id="shiftForm" class="form-grid" novalidate>
+          <label>Shift ID <input type="number" id="shiftId" min="1" required></label>
+          <label>Shift Name <input type="text" id="shiftName" placeholder="Morning / Evening" required></label>
+          <label>Start Time <input type="time" id="shiftStartTime" required></label>
+          <label>End Time <input type="time" id="shiftEndTime" required></label>
+          <button type="submit" class="btn">Add Shift</button>
+        </form>
+      </section>
+      <section class="card">
+        <h2>Shift List</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Name</th><th>Start</th><th>End</th></tr>
+            </thead>
+            <tbody id="shiftTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

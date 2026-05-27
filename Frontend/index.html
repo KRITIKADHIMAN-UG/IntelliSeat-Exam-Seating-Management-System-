@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Exam Seating System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">IntelliSeat</div>
+      <div class="sidebar-sub" id="sidebarUser">Exam Seating System</div>
+      <nav>
+        <a href="index.html" data-page="dashboard">Dashboard / Home</a>
+        <a href="students.html" data-page="students">Student Module</a>
+        <a href="exams.html" data-page="exams">Exam Module</a>
+        <a href="shifts.html" data-page="shifts">Shift Module</a>
+        <a href="seating.html" data-page="seating">Seating Module</a>
+        <a href="reports.html" data-page="reports">Reports / Downloads</a>
+      </nav>
+      <button type="button" class="logout-btn" id="logoutBtn">Logout</button>
+    </aside>
+    <main class="main-content">
+      <header class="page-header">
+        <h1>Dashboard</h1>
+        <p>Overview of students, exams, shifts, and seating allocation</p>
+      </header>
+      <section class="grid">
+        <article class="card"><h2>Students</h2><p id="statStudents">100</p><a class="btn" href="students.html">Open Module</a></article>
+        <article class="card"><h2>Exams</h2><p id="statExams">0</p><a class="btn" href="exams.html">Open Module</a></article>
+        <article class="card"><h2>Shifts</h2><p id="statShifts">0</p><a class="btn" href="shifts.html">Open Module</a></article>
+        <article class="card"><h2>Seating Records</h2><p id="statSeating">0</p><a class="btn" href="seating.html">Open Module</a></article>
+      </section>
+      <section class="card">
+        <h2>Workflow</h2>
+        <ol>
+          <li>Manage Students</li>
+          <li>Configure Exams</li>
+          <li>Define Shifts</li>
+          <li>Generate Seating (auto multi-hall allocation)</li>
+          <li>Download Reports (CSV / PDF)</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
